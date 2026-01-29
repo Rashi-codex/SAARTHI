@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #1a1a2e, #0f0f1a);
+    color: white;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* Card Grid */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+/* Glass Card */
+.card {
+    position: relative;
+    padding: 25px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Gradient Border Glow */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    background: linear-gradient(120deg, #00f5ff, #ff00e0, #00ff87);
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.7;
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+}
+
+/* Title */
+.card h3 {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Button */
+.card a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    background: linear-gradient(135deg, #00f5ff, #ff00e0);
+    box-shadow: 0 0 15px rgba(255, 0, 224, 0.6);
+    transition: all 0.3s ease;
+}
+
+.card a:hover {
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.9);
+    transform: scale(1.05);
+}
+
+/* Back button */
+.back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    text-decoration: none;
+    font-weight: 500;
+}
+.user-list{
+    list-style-type: none;
+    padding: 0;
+}
+.user-list li{
+    background: rgba(255, 255, 255, 0.1);
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    align-items: center;
+}
+.user-list li a{
+    color: #00f5ff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+.user-list li a:hover{
+    text-decoration: underline;
+}
+.delete-link{
+    color: red;
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.delete-link:hover{
+    text-decoration: underline;
+    background-color: bisque;
+}   

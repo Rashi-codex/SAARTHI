@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ subject }} Resources</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>{{ subject }} Resources</h2>
+
+<div class="card-container">
+{% for name, link in links %}
+    <div class="card">
+        <h3>{{ name }}</h3>
+        <a href="{{ link }}" target="_blank">Open</a>
+    </div>
+{% endfor %}
+</div>
+
+<a class="back-btn" href="javascript:history.back()">⬅ Back</a>
+
+</body>
+</html>
