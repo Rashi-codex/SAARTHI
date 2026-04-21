@@ -40,5 +40,77 @@
   <a href="javascript:history.back()">Go Back</a>
 </button>  
 
+<!-- ===== BLUE AI CHATBOT ===== -->
+<div style="position:fixed; bottom:20px; right:20px; width:320px; background:#0a192f; color:white; padding:12px; border-radius:12px; box-shadow:0 0 15px #007bff;">
+    
+    <h3 style="color:#00bfff;">💬 Smart AI Bot</h3>
+
+    <div id="chatbox" style="height:220px; overflow-y:auto; font-size:14px;"></div>
+
+    <input id="input" placeholder="Ask something..." 
+    style="width:68%; padding:6px; border-radius:6px; border:none;">
+    
+    <button onclick="reply()" 
+    style="background:#007bff; color:white; border:none; padding:6px 10px; border-radius:6px;">
+    Send
+    </button>
+
+</div>
+
+<script>
+
+function reply() {
+
+    let input = document.getElementById("input");
+    let msg = input.value.toLowerCase();
+    let chat = document.getElementById("chatbox");
+
+    if(msg === "") return;
+
+    chat.innerHTML += "<div style='text-align:right;'>👤 " + msg + "</div>";
+
+    let res = "";
+
+    // ===== SMART RESPONSES =====
+    if(msg.includes("python")) {
+        res = "🐍 Learn Python from W3Schools & practice on HackerRank.";
+    }
+    else if(msg.includes("java")) {
+        res = "☕ Start Java with OOP concepts from GeeksforGeeks.";
+    }
+    else if(msg.includes("web")) {
+        res = "🌐 Learn HTML, CSS, JS and build projects.";
+    }
+    else if(msg.includes("ai") || msg.includes("machine learning")) {
+        res = "🤖 Start AI with Python + basics of Machine Learning.";
+    }
+    else if(msg.includes("aptitude")) {
+        res = "🧠 Practice aptitude on IndiaBIX or PrepInsta.";
+    }
+    else if(msg.includes("english")) {
+        res = "📚 Improve English with stories & YouTube videos.";
+    }
+    else if(msg.includes("math")) {
+        res = "🔢 Practice math on Khan Academy.";
+    }
+    else if(msg.includes("career")) {
+        res = "🚀 Choose career in AI, Web Dev, Data Science or Cybersecurity.";
+    }
+    else if(msg.includes("hello") || msg.includes("hi")) {
+        res = "👋 Hello! Ask me about Python, AI, Web, Aptitude, Math etc.";
+    }
+    else {
+        res = "❓ Try asking about Python, AI, Web Dev, Aptitude, English or Career.";
+    }
+
+    chat.innerHTML += "<div style='color:#00bfff;'>💬 " + res + "</div>";
+
+    input.value = "";
+    chat.scrollTop = chat.scrollHeight;
+}
+
+</script>
+
+</script>
 </body>
 </html>

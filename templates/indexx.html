@@ -3,7 +3,6 @@
 <head>
 <title>LOGIN </title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
         * {
             margin: 0;
@@ -30,7 +29,7 @@
 </head>
 <body>
 <center>
-<h1>MIND FIT</h1>
+<h1>SAARTHI</h1>
 <div align="center">
 <form method="post" action="/dashboard">
 Email:<input type="email" name="email"><br><br>
@@ -38,24 +37,24 @@ Password:<input type="password" name="password"><br><br>
 First name:<input type="text" name="First_name"><br><br>
 Last name:<input type="text" name="Last_name"><br><br>
 <p><strong>Role:</strong></p>
-<label>
-<input type="radio"name="role" value="Children">Children
+<label class="radio-group"> 
+    <input type="radio"name="role" value="Children">Children
 </label>
-<label>
-<input type="radio"name="role" value="Student">Student
+<label class="radio-group">
+    <input type="radio"name="role" value="Student">Student
 </label>
-<label> 
-<input type="radio"name="role" value="Senior">Senior
+<label class="radio-group">
+    <input type="radio"name="role" value="Senior">Senior
 </label>
-<p><strong>age_group:</strong></p>
-<label>
-<input type="radio"name="age_group" value ="5-12">5-12
+<p><strong>Age_group:</strong></p>
+<label class="radio-group">
+    <input type="radio"name="age_group" value ="5-12">5-12
 </label>
-<label>
-<input type="radio"name="age_group" value ="13-24">13-24
+<label class="radio-group">
+    <input type="radio"name="age_group" value ="13-24">13-24
 </label><br>
-<label>
-<input type="radio"name="age_group" value ="Above 25">Above 25
+<label class="radio-group">
+    <input type="radio"name="age_group" value ="Above 35">Above 35
 </label><br>
 
 <button type="submit">Login</button>
@@ -161,65 +160,6 @@ Last name:<input type="text" name="Last_name"><br><br>
 </div>
 
 </center>
-<!-- ================= 3D UNIVERSE SCRIPT ================= -->
-<script>
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-    );
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-
-    camera.position.z = 5;
-
-    // Create stars
-    const starsGeometry = new THREE.BufferGeometry();
-    const starsCount = 2500;
-    const positions = [];
-
-    for (let i = 0; i < starsCount; i++) {
-        positions.push(
-            (Math.random() - 0.5) * 50,
-            (Math.random() - 0.5) * 50,
-            (Math.random() - 0.5) * 50
-        );
-    }
-
-    starsGeometry.setAttribute(
-        'position',
-        new THREE.Float32BufferAttribute(positions, 3)
-    );
-
-    const starsMaterial = new THREE.PointsMaterial({
-        color: 0xffffff,
-        size: 0.12,
-        transparent: true,
-        opacity: 0.8
-    });
-
-    const stars = new THREE.Points(starsGeometry, starsMaterial);
-    scene.add(stars);
-
-    // Animate
-    function animate() {
-        requestAnimationFrame(animate);
-        stars.rotation.y += 0.0007;
-        stars.rotation.x += 0.0003;
-        renderer.render(scene, camera);
-    }
-
-    animate();
-
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-</script>
 </body>
 </html>

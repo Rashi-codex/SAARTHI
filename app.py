@@ -37,7 +37,7 @@ def delete_user(email):
     c.execute('DELETE FROM users WHERE Email=?',(email,))
     conn.commit()
     conn.close()
-    
+  
 # SUBJECTS & RESOURCES DATA
 LEARNING_DATA = {
     "Children": {
@@ -101,8 +101,23 @@ LEARNING_DATA = {
             ("PIB", "https://pib.gov.in"),
             ("Drishti IAS", "https://www.drishtiias.com"),
             ("YouTube - Current Affairs", "https://www.youtube.com/results?search_query=current+affairs")
+        ],
+        "Bhakti Music": [
+            ("YouTube Bhakti Songs", "https://www.youtube.com/results?search_query=bhakti+music"),
+            ("Gaana Bhakti", "https://gaana.com/genre/devotional")
+        ],
+
+        "Online Banking Help": [
+            ("SBI Guide", "https://sbi.co.in/web/personal-banking"),
+            ("YouTube Banking Tutorial", "https://www.youtube.com/results?search_query=online+banking+tutorial")
+        ],
+
+        "Digital Learning": [
+            ("Google Digital Garage", "https://learndigital.withgoogle.com"),
+            ("YouTube Basics", "https://www.youtube.com/results?search_query=how+to+use+mobile+for+beginners")
         ]
     }
+        
 }
 
  
@@ -121,7 +136,7 @@ def dashboard():
         subjects=LEARNING_DATA["Children"]
     elif role=="Student" and age_group=="13-24":
         subjects=LEARNING_DATA["Student"]     
-    elif role=="Senior" and age_group=="Above 25":
+    elif role=="Senior" and age_group=="Above 35":
         subjects=LEARNING_DATA["Senior"]
 
     return render_template("dashboard.html", role=role, age_group=age_group, subjects=subjects)
